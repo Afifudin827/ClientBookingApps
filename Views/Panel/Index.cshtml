@@ -1,0 +1,183 @@
+﻿@{
+    ViewData["title"] = "Dashboard";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="card" style="margin-top: 20px; padding:10px;">
+    <h5 class="card-header">Detail Employee</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table" id="tableEmployee">
+            <thead>
+                <tr class="text-nowrap">
+                    <th>#</th>
+                    <th>NIK</th>
+                    <th>Name</th>
+                    <th>Birth Date</th>
+                    <th>Gander</th>
+                    <th>Hiring Date</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Major</th>
+                    <th>Degree</th>
+                    <th>Gpa</th>
+                    <th>Univercity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTabels">
+                        
+            </tbody>
+            <tfoot>
+                <tr class="text-nowrap">
+                    <th>#</th>
+                    <th>NIK</th>
+                    <th>Name</th>
+                    <th>Birth Date</th>
+                    <th>Gander</th>
+                    <th>Hiring Date</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Major</th>
+                    <th>Degree</th>
+                    <th>Gpa</th>
+                    <th>Univercity</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="tambahEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Regist New Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="row was-validated" novalidate>
+                    <div class="alert alert-warning d-flex align-items-center" style="visibility:hidden;position:absolute;" role="alert">
+                        
+                    </div>
+                    <div class="mb-3 FirstName">
+                        <label for="first-name" class="col-form-label">First Name :</label>
+                        <input type="text" class="form-control" id="first-name" required>
+                        <div class="invalid-feedback">
+                            Please Insert Your First Name.
+                        </div>
+                    </div>
+                    <div class="mb-3 LastName">
+                        <label for="last-name" class="col-form-label">Last Name :</label>
+                        <input type="text" class="form-control" id="last-name">
+                    </div>
+                    <div class="mb-3 BirthDate">
+                        <label>Birth Date: </label>
+                        <input type="date" class="form-control" id="birth-date" required name="date">
+                        <div class="invalid-feedback">
+                            Please Insert Your Birth Date.
+                        </div>
+                    </div>
+                    <div class="mb-3 Gender">
+                        <label for="gender" class="col-form-label">Gander: </label>
+                        <select class="form-select" id="gander" aria-label="Default select example">
+                            <option selected disabled>Choose Your Gander</option>
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please Select Your Gender.
+                        </div>
+                    </div>
+                    <div class="mb-3 HiringDate">
+                        <label for="hiring-date" class="col-form-label">Hiring Date: </label>
+                        <input type="date" class="form-control" id="hiring-date"  required name="date">
+                        <div class="invalid-feedback">
+                            Please Select Your Hiring Date.
+                        </div>
+                    </div>
+                    <div class="mb-3 Email">
+                        <label for="email" class="col-form-label">Email :</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">
+                            Please Insert Your Email.
+                        </div>
+                    </div>
+                    <div class="mb-3 PhoneNumber">
+                        <label for="phone-number" class="col-form-label">Phone Number :</label>
+                        <input type="text" class="form-control" required id="phone-number">
+                        <div class="invalid-feedback">
+                            Please Insert Your Phone Number.
+                        </div>
+                    </div>
+                    <div class="mb-3 Major">
+                        <label for="major" class="col-form-label">major :</label>
+                        <input type="text" class="form-control" required id="major">
+                        <div class="invalid-feedback">
+                            Please Insert Your Major.
+                        </div>
+                    </div>
+                    <div class="mb-3 Degree">
+                        <label for="degree" class="col-form-label">Degree :</label>
+                        <input type="text" class="form-control" required id="degree">
+                        <div class="invalid-feedback">
+                            Please Insert Your Degree.
+                        </div>
+                    </div>
+                    <div class="mb-3 GPA">
+                        <label for="gpa" class="col-form-label">GPA :</label>
+                        <input type="text" class="form-control" required id="gpa">
+                        <div class="invalid-feedback">
+                            Please Insert Your GPA.
+                        </div>
+                    </div>
+                    <div class="mb-3 UnivercityCode">
+                        <label for="univercity-code" class="col-form-label">Univercity Code :</label>
+                        <input type="text" class="form-control" required id="univercity-code">
+                        <div class="invalid-feedback">
+                            Please Insert Your Univercity Code.
+                        </div>
+                    </div>
+                    <div class="mb-3 UnivercityName">
+                        <label for="univercity-name" class="col-form-label">Univercity Name :</label>
+                        <input type="text" class="form-control" required id="univercity-name">
+                        <div class="invalid-feedback">
+                            Please Insert Your Name.
+                        </div>
+                    </div>
+                    <div class="mb-3 Password">
+                        <label for="password" class="col-form-label">Password :</label>
+                        <input type="password" class="form-control" required id="password">
+                        <div class="invalid-feedback">
+                            Please Insert Your Password.
+                        </div>
+                    </div>
+                    <div class="mb-3 ConfirmPassword">
+                        <label for="confirmPassword" class="col-form-label">Confirm Password :</label>
+                        <input type="password" class="form-control" required id="confirmPassword">
+                        <div class="invalid-feedback">
+                            Please Insert Your Confirm Password.
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary createEmployee" onclick="validateForm()">Registerd</button>
+                <button type="button" class="btn btn-warning updateEmployee" style="visibility:hidden;position:absolute;" onclick="">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay" style="display:none">
+    <div class="d-flex justify-content-center">
+        <div class="spinner-grow text-primary" role="status" style="width: 3rem; height: 3rem; z-index: 20;">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/panel.js" asp-append-version="true"></script>
+}
