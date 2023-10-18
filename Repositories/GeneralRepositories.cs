@@ -8,9 +8,9 @@ namespace Client.Repositories;
 public class GeneralRepository<Entity, TId> : IRepository<Entity, TId>
         where Entity : class
 {
-    private readonly string request;
+    protected readonly string request;
     private readonly HttpContextAccessor contextAccessor;
-    private HttpClient httpClient;
+    protected HttpClient httpClient;
 
     //constructor
     public GeneralRepository(string request)

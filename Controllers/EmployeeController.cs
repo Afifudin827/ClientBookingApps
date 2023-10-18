@@ -1,10 +1,12 @@
 ﻿using Client.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Server.DTOs.Employees;
 using System;
 
 namespace Client.Controllers;
+[Authorize]
 public class EmployeeController : Controller
 {
     private readonly IEmployeeRepository repository;
@@ -70,5 +72,12 @@ public class EmployeeController : Controller
     {
         var result = await repository.Delete(guid);
         return RedirectToAction("Index", "Employee");
+    }
+
+    [HttpGet("Logout/")]
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+        return RedirectToAction("index");
     }
 }
